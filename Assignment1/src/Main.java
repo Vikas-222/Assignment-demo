@@ -2,6 +2,8 @@ import Exceptions.InvalidOrderException;
 import Exceptions.OrderNotFoundException;
 import Exceptions.StockUnavailableException;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -52,6 +54,49 @@ public class Main {
         } catch (OrderNotFoundException e) {
             System.out.println(e.getMessage());
         }
+
+
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.println("1. To add Product");
+        System.out.println("2. To add Customer");
+        System.out.println("3. To place Order");
+        System.out.println("4. To view cart");
+        System.out.println("5. To checkout");
+        System.out.println("6. To exit");
+
+        int choice = sc.nextInt();
+        while(choice >= 1 && choice <= 6)
+        {
+            switch (choice){
+                case 1:
+                    System.out.println("Enter product id:");
+                    int productid = sc.nextInt();
+                    System.out.println("Enter product name:");
+                    String productname = sc.nextLine();
+                    System.out.println("Enter product price:");
+                    float price = sc.nextFloat();
+                    System.out.println("Enter product quantity:");
+                    int qty = sc.nextInt();
+
+                    Product p = new Product(productid,productname,price,qty);
+
+                case 2:
+                    System.out.println("Enter customer id:");
+                    int customerid = sc.nextInt();
+                    System.out.println("Enter customer name:");
+                    String customername = sc.nextLine();
+                    System.out.println("Enter customer email:");
+                    String email = sc.nextLine();
+                    System.out.println("Enter customer contact no.:");
+                    int contact = sc.nextInt();
+
+                    Customer c = new Customer(customerid,customername,email,contact);
+            }
+        }
+
+
 
     }
 }
