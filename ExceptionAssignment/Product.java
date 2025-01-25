@@ -74,7 +74,7 @@ public class Product {
         return "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
-                ", availableQuantity=" + availableQuantity;
+                ", availableQuantity=" + availableQuantity ;
 
     }
 }

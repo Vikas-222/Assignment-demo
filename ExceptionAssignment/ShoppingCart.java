@@ -43,15 +43,19 @@ public class ShoppingCart {
         }
     }
 
-    public double Checkout(){
-        double Bill = 0.0;
-        double totalBill = 0.0;
-        for (Order o : cart) {
-            Bill += o.calculateTotal();
+    public double Checkout() throws OrderNotFoundException {
+        if (cart.isEmpty() == true) {
+            throw new OrderNotFoundException("No such order found! Cart is empty");
+        } else {
+            double Bill = 0.0;
+            double totalBill = 0.0;
+            for (Order o : cart) {
+                Bill += o.calculateTotal();
+            }
+            cart.clear();
+            totalBill = Bill + 100;  //delivery charge
+            return totalBill;
         }
-        cart.clear();
-        totalBill = Bill + 100;  //delivery charge
-        return totalBill;
     }
 
 }

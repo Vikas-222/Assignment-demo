@@ -2,23 +2,33 @@ import Exceptions.InvalidOrderException;
 import Exceptions.OrderNotFoundException;
 import Exceptions.StockUnavailableException;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        Set<Product> product = new HashSet<>();
+
         Product p1 = new Product(1, "Iphone X", 70000.00, 5);
         Product p2 = new Product(2, "Iphone 11", 75000.00, 5);
+
+        product.add(p1);
+        product.add(p2);
+
 
         Customer customer1 = new Customer(101, "Vikas", "vikas@gmail.com", 123456);
         Customer customer2 = new Customer(102, "Arpan", "arpan@gmail.com", 128956);
 
+
         ShoppingCart customer1Cart = new ShoppingCart(customer1);
         ShoppingCart customer2Cart = new ShoppingCart(customer2);
 
-
         try {
-            //first order customer1
+            // first order customer1
             Order order1 = new Order(1001, customer1, p1, 3);
             customer1Cart.addOrder(order1);
 
@@ -56,47 +66,7 @@ public class Main {
         }
 
 
-        Scanner sc = new Scanner(System.in);
-
-
-        System.out.println("1. To add Product");
-        System.out.println("2. To add Customer");
-        System.out.println("3. To place Order");
-        System.out.println("4. To view cart");
-        System.out.println("5. To checkout");
-        System.out.println("6. To exit");
-
-        int choice = sc.nextInt();
-        while(choice >= 1 && choice <= 6)
-        {
-            switch (choice){
-                case 1:
-                    System.out.println("Enter product id:");
-                    int productid = sc.nextInt();
-                    System.out.println("Enter product name:");
-                    String productname = sc.nextLine();
-                    System.out.println("Enter product price:");
-                    float price = sc.nextFloat();
-                    System.out.println("Enter product quantity:");
-                    int qty = sc.nextInt();
-
-                    Product p = new Product(productid,productname,price,qty);
-
-                case 2:
-                    System.out.println("Enter customer id:");
-                    int customerid = sc.nextInt();
-                    System.out.println("Enter customer name:");
-                    String customername = sc.nextLine();
-                    System.out.println("Enter customer email:");
-                    String email = sc.nextLine();
-                    System.out.println("Enter customer contact no.:");
-                    int contact = sc.nextInt();
-
-                    Customer c = new Customer(customerid,customername,email,contact);
-            }
-        }
-
-
-
     }
+
+
 }
