@@ -8,12 +8,11 @@ public class Employee {
     private double salary;
     private int age;
 
-    public Employee(int id, String name, String department, double salary, int age) {
+    public Employee(int id, String name, String department, double salary) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.salary = salary;
-        this.age = age;
     }
 
     public String getName() {
@@ -32,12 +31,19 @@ public class Employee {
         this.salary = salary;
     }
 
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "id=" + id +
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
-                ", salary=" + salary +
-                ", age=" + age;
+                ", salary=" + salary;
     }
 }
