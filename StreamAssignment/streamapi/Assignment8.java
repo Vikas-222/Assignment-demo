@@ -22,7 +22,7 @@ public class Assignment8 {
                 new Employee(5, "Eve", "HR", 72000)
         );
 
-        Map<String,Double> totalSalary = employees.stream().collect(Collector.of(
+        Map<String,Double> totalSalary = employees.parallelStream().collect(Collector.of(
                 HashMap::new,
                 (map,employee) -> map.merge(employee.getDepartment(),employee.getSalary(),Double::sum),
                 (a,b) -> {
